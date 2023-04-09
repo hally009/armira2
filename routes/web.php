@@ -155,6 +155,7 @@ Route::group(
         Route::post('/psp-agreement/{id}/upload-sk', 'PspAgreementController@upload')->name('psp.uploadsk');
         Route::put('/psp-agreement/{id}/repeat', 'PspAgreementController@repeat')->name('psp.repeat');
         Route::get('/psp-draft/{id}/', 'PspController@draftPsp')->name('psp.draft');
+        Route::get('/psp-draft-word/{id}/', 'PspController@draftPspWord')->name('psp.draft.word');
 
         // hibah
         Route::resource('/hibah', 'HibahController');
@@ -163,6 +164,7 @@ Route::group(
         Route::put('/hibah-agreement/{id}/repeat', 'HibahAgreementController@repeat')->name('hibah.repeat');
         Route::post('/hibah-agreement/{id}/upload-sk', 'HibahAgreementController@upload')->name('hibah.uploadsk');
         Route::get('/hibah-draft/{id}/', 'HibahController@draftHibah')->name('hibah.draft');
+        Route::get('/hibah-draft-word/{id}/', 'HibahController@draftHibahWord')->name('hibah.draft.word');
 
         // penghapusan
         Route::resource('/penghapusan', 'PenghapusanController');
@@ -171,6 +173,7 @@ Route::group(
         Route::put('/penghapusan-agreement/{id}/repeat', 'PenghapusanAgreementController@repeat')->name('penghapusan.repeat');
         Route::post('/penghapusan-agreement/{id}/upload-sk', 'PenghapusanAgreementController@upload')->name('penghapusan.uploadsk');
         Route::get('/penghapusan-draft/{id}', 'PenghapusanController@draftPenghapusan')->name('penghapusan.draft');
+        Route::get('/penghapusan-draft-word/{id}', 'PenghapusanController@draftPenghapusanWord')->name('penghapusan.draft.word');
 
         // Modul Perencanaan
         Route::resource('/pengadaan', 'PengadaanController');
@@ -179,6 +182,7 @@ Route::group(
         Route::put('/pengadaan-agreement/{id}/rejected', 'PengadaanAgreementController@rejected')->name('pengadaan.rejected');
         Route::put('/pengadaan-agreement/{id}/repeat', 'PengadaanAgreementController@repeat')->name('pengadaan.repeat');
         Route::get('/pengadaan-draft', 'PengadaanController@draftPengadaan')->name('pengadaan.draft');
+        Route::get('/pengadaan-draft-word/{id}', 'PengadaanController@draftPengadaanWord')->name('pengadaan.draft.word');
 
     }
 );

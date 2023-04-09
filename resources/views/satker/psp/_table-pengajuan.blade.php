@@ -67,17 +67,17 @@ $form = json_decode($psp->pengelolaanForm->form);
                 <div class="row text-secondary">
                     <div class="col-2 col-sm-2">
                         <h1>
-                            @if ($item->isDeletable())
-                            <a href="#" onclick="deleteById({{ $item->id }})">
+                            @if ($psp->isDeletable())
+                            <a href="#" onclick="deleteById({{ $psp->id }})">
                                 <i class="bi bi-trash3 text-danger"></i>
                             </a>
-                            <form id="del-form-{{ $item->id }}" action="{{ route('Satker::psp.destroy', $item) }}"
+                            <form id="del-form-{{ $psp->id }}" action="{{ route('Satker::psp.destroy', $psp) }}"
                                 method="POST" class="d-none">
                                 @csrf
                                 @method('delete')
                             </form>
                             @else
-                            {!! $item->status_icon !!}
+                            {!! $psp->status_icon !!}
                             @endif
                         </h1>
                     </div>

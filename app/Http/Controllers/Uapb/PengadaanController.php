@@ -157,4 +157,52 @@ class PengadaanController extends Controller
         ]);
         return $pdf->stream('draft-pengadaan-pdf');
     }
+
+    public function draftPengadaanWord(Request $request, $id)
+    {
+        
+        // $periode = $this->profile->getPeriode([
+        //     'status' => get_status('aktif'),
+        // ])->first();
+
+        // $argumen = $this->repository->forDetailPengadaan($periode,  get_status_alur('disetujui'));
+        // $accepted = $this->profile->getSatker($argumen);
+
+
+        // $argumen = $this->repository->forDetailPengadaan($periode,  get_status_alur('ditolak'));
+        // $rejected = $this->profile->getSatker($argumen);
+        
+        // if ($accepted->count() <= 0) {
+        //     return redirect()->back()->withWarning('Belum ada pengajuan Pengadaan BMN')->withInput();
+        // }
+
+        // $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        // $section = $phpWord->addSection();
+        // $text = $section->addText(date('Y-m-d'));
+        // $text = $section->addText('koetik');
+        // $text = $section->addText('20',array('name'=>'Arial','size' => 20,'bold' => true));
+        // // $section->addImage("./images/prashant.jpg");  
+        // $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        // $objWriter->save('CodeSolutionStuff.docx');
+
+
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $section = $phpWord->addSection();
+        
+        $description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        
+        $section->addText($description);
+        $section->addText("");
+        $section->addText($description);
+
+
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        $objWriter->save('CodeSolutionStuff.docx');
+
+        return response()->download(public_path('CodeSolutionStuff.docx'));
+    }
 }

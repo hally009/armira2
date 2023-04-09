@@ -7,10 +7,10 @@ if (!function_exists('roles')) {
     function roles($argumen = false)
     {
         $roles = [
-            'satker' => '1',
-            'uapb' => '2',
-            'apip' => '3',
-            'operator_satker' => '4',
+            'satker' => 1,
+            'uapb' => 2,
+            'apip' => 3,
+            'operator_satker' => 4,
         ];
 
         if ($argumen) {

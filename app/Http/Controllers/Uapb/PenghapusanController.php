@@ -65,4 +65,22 @@ class PenghapusanController extends Controller
         ])->setPaper('a4', 'portrait');
         return $pdf->stream('draft-penghapusan-'.$item->satker->name.'-pdf');
     }
+
+    public function draftPenghapusanWord(Request $request, $id)
+    {
+        $argumen = [
+            'with'=>['pengelolaanAlur', 'pengelolaanForm', 'satker']
+        ];
+        
+        $item = $this->repository->getSinglePengelolaan($id, $argumen);
+        $formAttribute = form_penghapusan($item->dokumen_id.'_'.$item->kategori_id);
+        $file = public_path('template/template_hapus_'.$formAttribute['draft'].'.rtf');
+        $form = json_decode($item->pengelolaanForm->form);
+
+        
+		$array = content_penghapusan($item->dokumen_id.'_'.$item->kategori_id, $item, $form);
+        
+		$nama_file = 'draft_penghapusan'.$item->kode_transaksi.'.doc';
+        return \WordTemplate::export($file, $array, $nama_file);
+    }
 }

@@ -27,26 +27,54 @@
                     <div class="col-md-7 align-self-center text-right">
                         <div class="d-flex justify-content-end align-items-center">
                             @if($item->status_progress == get_status_alur('on-progress'))
-                            <button class="btn btn-outline-danger me-1" data-bs-toggle="modal" data-bs-target="#modal-rejected">
+                            <button class="btn btn-outline-danger me-1" data-bs-toggle="modal"
+                                data-bs-target="#modal-rejected">
                                 Ditolak <i class="bi bi-journal-x"></i>
                             </button>
-                            <button class="btn btn-outline-primary me-1" data-bs-toggle="modal" data-bs-target="#modal-repeat">
+                            <button class="btn btn-outline-primary me-1" data-bs-toggle="modal"
+                                data-bs-target="#modal-repeat">
                                 Perbaikan <i class="bi bi-arrow-repeat"></i>
                             </button>
-                            <a type="button" href="#" class="btn btn-outline-success me-1" onclick="event.preventDefault(); document.getElementById('aggreement-form').submit();">
+                            <a type="button" href="#" class="btn btn-outline-success me-1"
+                                onclick="event.preventDefault(); document.getElementById('aggreement-form').submit();">
                                 Disetujui<i class="bi bi-chevron-right"></i>
                             </a>
-                            <form id="aggreement-form" action="{{ route('Uapb::psp.approve', $item) }}" method="POST" class="d-none">
+                            <form id="aggreement-form" action="{{ route('Uapb::psp.approve', $item) }}" method="POST"
+                                class="d-none">
                                 @method('PUT')
                                 @csrf
                             </form>
                             @endif
 
                             @if($item->status_progress == get_status_alur('disetujui'))
-                            <a type="button" target="blank" href="{{ route('Uapb::psp.draft', $item) }}" class="btn btn-outline-success me-1">
+                            <div class="btn-group me-1">
+                                <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Download Draft
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" target="blank"
+                                            href="{{ route('Uapb::psp.draft', $item) }}">
+                                            Format PDF
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" target="blank"
+                                            href="{{ route('Uapb::psp.draft.word', $item) }}">
+                                            Format Doc
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            {{-- <a type="button" target="blank" href="{{ route('Uapb::psp.draft', $item) }}"
+                                class="btn btn-outline-success me-1">
                                 Download Draft <i class="bi bi-file-earmark-arrow-down"></i>
-                            </a>
-                            <button class="btn btn-outline-success me-1" data-bs-toggle="modal" data-bs-target="#modal-upload">
+                            </a> --}}
+                            <button class="btn btn-outline-success me-1" data-bs-toggle="modal"
+                                data-bs-target="#modal-upload">
                                 Upload SK <i class="bi bi-file-earmark-arrow-up"></i>
                             </button>
                             @endif
@@ -68,7 +96,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" id="uploadSk" action="{{ route('Uapb::psp.repeat', $item) }}" method="POST" enctype="multipart/form-data">
+                <form class="row g-3" id="uploadSk" action="{{ route('Uapb::psp.repeat', $item) }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="col-md-12">
@@ -76,7 +105,8 @@
                     </div>
                     <div class="row ps-0 pe-0 mt-3">
                         <div class="col-md-5 ps-4">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" id="tutup">Tutup</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+                                id="tutup">Tutup</button>
                         </div>
                         <div class="col-md-7 pe-0 align-self-center text-right">
                             <div class="d-flex justify-content-end align-items-center">
@@ -98,7 +128,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" id="uploadSk" action="{{ route('Uapb::psp.rejected', $item) }}" method="POST" enctype="multipart/form-data">
+                <form class="row g-3" id="uploadSk" action="{{ route('Uapb::psp.rejected', $item) }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="col-md-12">
@@ -106,7 +137,8 @@
                     </div>
                     <div class="row ps-0 pe-0 mt-3">
                         <div class="col-md-5 ps-4">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" id="tutup">Tutup</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+                                id="tutup">Tutup</button>
                         </div>
                         <div class="col-md-7 pe-0 align-self-center text-right">
                             <div class="d-flex justify-content-end align-items-center">
@@ -128,7 +160,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" id="uploadSk" action="{{ route('Uapb::psp.uploadsk', $item) }}" method="POST" enctype="multipart/form-data">
+                <form class="row g-3" id="uploadSk" action="{{ route('Uapb::psp.uploadsk', $item) }}" method="POST"
+                    enctype="multipart/form-data">
                     @method('POST')
                     @csrf
                     <div class="col-md-12">
@@ -136,7 +169,8 @@
                     </div>
                     <div class="row ps-0 pe-0 mt-3">
                         <div class="col-md-5 ps-4">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" id="tutup">Tutup</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+                                id="tutup">Tutup</button>
                         </div>
                         <div class="col-md-7 pe-0 align-self-center text-right">
                             <div class="d-flex justify-content-end align-items-center">

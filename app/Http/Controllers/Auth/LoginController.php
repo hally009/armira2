@@ -47,7 +47,7 @@ class LoginController extends Controller
             "password" => request("password")
         ];
 
-        if(request("role") == 2 || request("role") == 3) {
+        if(request("role") == roles('uapb') || request("role") == roles('apip')) {
             $credentials['role'] = request("role");
         }
     

@@ -1079,3 +1079,103 @@ if (!function_exists('tab_perencanaan')) {
         return $tabs;
     }
 }
+
+if (!function_exists('content_penghapusan')) {
+    function content_penghapusan($id, $item, $form)
+    {
+        $content = [
+            '1_1' => [
+                '[TANGGAL_SURAT]' => human_date($form->tanggal_surat),
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[TOTAL_NILAI]' => $form->total_nilai,
+                '[NILAI_LIMIT]' => $form->nilai_limit,
+                '[TOTAL_NILAI_TERBILANG]' => terbilang($form->total_nilai),
+                '[NILAI_LIMIT_TERBILANG]' => terbilang($form->nilai_limit),
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+            ],
+            '1_2' => [
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+                '[TANGGAL_SURAT]' => human_date($form->tanggal_surat),
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[TOTAL_NILAI]' => $form->total_nilai,
+                '[TOTAL_NILAI_TERBILANG]' => terbilang($form->total_nilai),
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+            ],
+            '1_3' => [
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[TANGGAL_SURAT]' => human_date($form->tanggal_surat),
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+                '[TOTAL_NILAI]' => $form->total_nilai,
+                '[TOTAL_NILAI_TERBILANG]' => terbilang($form->total_nilai),
+                '[NILAI_LIMIT]' => $form->nilai_limit,
+                '[NILAI_LIMIT_TERBILANG]' => terbilang($form->nilai_limit),
+                
+            ],
+            '1_4' => [
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[TANGGAL_SURAT]' => human_date($form->tanggal_surat),
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+                '[TOTAL_NILAI]' => $form->total_nilai,
+                '[TOTAL_NILAI_TERBILANG]' => terbilang($form->total_nilai),
+                
+            ],
+            '2_1' => [
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+                '[NOMOR_SURAT_PERSETUJUAN]' => $form->nomor_surat_persetujuan,
+                '[PERIHAL_SURAT_PERSETUJUAN]' => $form->perihal_surat_persetujuan,
+                '[NOMOR_SK]' => $form->nomor_sk,
+                '[PERIHAL_SK]' => $form->perihal_sk,
+            ],
+            '2_2' => [
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+                '[NOMOR_SURAT_PERSETUJUAN]' => $form->nomor_surat_persetujuan,
+                '[PERIHAL_SURAT_PERSETUJUAN]' => $form->perihal_surat_persetujuan,
+                '[NOMOR_SK]' => $form->nomor_sk,
+                '[PERIHAL_SK]' => $form->perihal_sk,
+            ],
+            '2_3' => [
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+                '[NOMOR_SURAT_PERSETUJUAN]' => $form->nomor_surat_persetujuan,
+                '[PERIHAL_SURAT_PERSETUJUAN]' => $form->perihal_surat_persetujuan,
+                '[NOMOR_SK]' => $form->nomor_sk,
+                '[PERIHAL_SK]' => $form->perihal_sk,
+            ],
+            '2_4' => [
+                '[NAMA_SATKER]' => $item->satker->name,
+                '[SATKER_DJKN]' => $item->satker->djkn,
+                '[SATKER_KPKNL]' => $item->satker->kpknl,
+                '[NOMOR_SURAT]' => $form->nomor_surat,
+                '[PERIHAL_SURAT]' => $form->perihal_surat,
+                '[NOMOR_SURAT_PERSETUJUAN]' => $form->nomor_surat_persetujuan,
+                '[PERIHAL_SURAT_PERSETUJUAN]' => $form->perihal_surat_persetujuan,
+                '[NOMOR_SK]' => $form->nomor_sk,
+                '[PERIHAL_SK]' => $form->perihal_sk,
+            ],
+        ];
+
+        return $content[$id];
+    }
+}

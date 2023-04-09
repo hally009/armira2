@@ -43,9 +43,29 @@
                             @endif
 
                             @if($item->status_progress == get_status_alur('disetujui'))
-                            <a type="button" href="{{ route('Uapb::hibah.draft', $item) }}" target="blank" class="btn btn-outline-success me-1">
+                            <div class="btn-group me-1">
+                                <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Download Draft
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" target="blank"
+                                            href="{{ route('Uapb::hibah.draft', $item) }}">
+                                            Format PDF
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" target="blank"
+                                            href="{{ route('Uapb::hibah.draft.word', $item) }}">
+                                            Format Doc
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {{-- <a type="button" href="{{ route('Uapb::hibah.draft', $item) }}" target="blank" class="btn btn-outline-success me-1">
                                 Download Draft <i class="bi bi-file-earmark-arrow-down"></i>
-                            </a>
+                            </a> --}}
                             <button class="btn btn-outline-success me-1" data-bs-toggle="modal" data-bs-target="#modal-upload">
                                 Upload SK <i class="bi bi-file-earmark-arrow-up"></i>
                             </button>
